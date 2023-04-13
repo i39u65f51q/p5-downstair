@@ -1,0 +1,28 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Russo One', sans-serif;
+}
+body {
+  overflow: hidden;
+}
+#container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+  background-color: #e4e4e4;
+}
+
+.panel .heart {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.panel .heart .heart-item {
+  width: 2rem;
+  aspect-ratio: 1/1;
+}
