@@ -14,9 +14,18 @@ body {
   height: 100vh;
   position: absolute;
   z-index: -1;
-  background-color: #e4e4e4;
+  background-image: url('./asset//wall.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.95;
 }
 
+.panel .score-wrap {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
 .panel .heart {
   display: flex;
   gap: 0.2rem;
