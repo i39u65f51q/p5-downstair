@@ -51,9 +51,7 @@ function draw() {
     stroke(0);
     rect(b.x, b.y, b.width, b.height);
   });
-  buildings.forEach(b => {
-    score <= 20 ? b.y-- : score <= 40 ? (b.y -= 2) : (b.y -= 4);
-  });
+  buildings.forEach(b => b.y--);
 
   /* 清除超出螢幕外的物件 */
   // const removeIndex = buildings.findIndex(b => b.y <= 10);
@@ -81,7 +79,7 @@ function draw() {
     }
   }
   /* 建立角色 */
-  role();
+  gRole();
 
   /* 鍵盤事件 */
   if (keyIsDown(LEFT_ARROW) || keyIsDown(RIGHT_ARROW)) {
@@ -98,9 +96,9 @@ function draw() {
     scoreElement.textContent = score;
   }
 }
-function role() {
+function gRole() {
   //p5: image(img, dx, dy, dWidth, dHeight, sx, sy, sWidth, sHeight, fit, xAlign, yAlign)
-  image(roleImg, roleX, roleY, 32, 48, step * 32, direction * 48, 32, 48, step * 32 + 32, direction * 48);
+  image(roleImg, roleX, roleY, 32, 48, step * 32, direction * 48, 32, 48, 0, step * 32 + 32, direction * 48);
 }
 function toLeft() {
   direction = 1;
@@ -113,7 +111,7 @@ function toRight() {
 }
 
 function fallDown() {
-  score <= 20 ? roleY++ : score <= 40 ? (role += 2) : (role += 4);
+  roleY++;
 }
 /* 角色受傷 */
 function roleDead() {
