@@ -22,9 +22,9 @@ let isStandOnBuilding = false;
 
 /* 建築設定 */
 const bWidth = 250;
-const bHeight = 20;
+const bHeight = 10;
 let standIndex = -1;
-const buildings = [{ x: screenWidth / 2 - 100, y: 700, width: bWidth, height: bHeight }];
+const buildings = [{ x: screenWidth / 2 - 100, y: screenHeight / 2, width: bWidth, height: bHeight }];
 
 /* ----------- Processing ------------*/
 function setup() {
@@ -63,14 +63,14 @@ function draw() {
   }
   /* 判斷人物是否站在物件上 */
   const checkStandBuildingIndex = buildings.findIndex(
-    b => roleY === b.y - bHeight * 2 && roleX >= b.x && roleX <= b.x + bWidth,
+    b => roleY === b.y - bHeight * 4 && roleX >= b.x && roleX <= b.x + bWidth,
   );
   if (checkStandBuildingIndex !== -1 && standIndex === -1) {
     standIndex = checkStandBuildingIndex;
     isStandOnBuilding = true;
   }
   if (standIndex !== -1) {
-    roleY = buildings[standIndex].y - bHeight * 2;
+    roleY = buildings[standIndex].y - bHeight * 4;
 
     /* 判斷角色是否站在建築物上 */
     if (roleX + 32 <= buildings[standIndex].x || roleX >= buildings[standIndex].x + bWidth) {
@@ -98,7 +98,7 @@ function draw() {
 }
 function gRole() {
   //p5: image(img, dx, dy, dWidth, dHeight, sx, sy, sWidth, sHeight, fit, xAlign, yAlign)
-  image(roleImg, roleX, roleY, 32, 48, step * 32, direction * 48, 32, 48, 0, step * 32 + 32, direction * 48);
+  image(roleImg, roleX, roleY, 32, 48, step * 32, direction * 48, 32, 48, step * 32 + 32, direction * 48, CENTER);
 }
 function toLeft() {
   direction = 1;
