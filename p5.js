@@ -24,7 +24,9 @@ let isStandOnBuilding = false;
 const bWidth = 250;
 const bHeight = 10;
 let standIndex = -1;
-const buildings = [{ x: screenWidth / 2 - 100, y: screenHeight / 2, width: bWidth, height: bHeight }];
+const buildings = [
+  { x: screenWidth / 2 - 100, y: Math.floor(screenHeight / 2 / 100) * 100, width: bWidth, height: bHeight },
+];
 
 /* ----------- Processing ------------*/
 function setup() {
